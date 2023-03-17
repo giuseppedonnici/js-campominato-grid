@@ -51,3 +51,20 @@ header {
 }
 
 /* MAIN */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    margin: 3rem auto;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 10);
+    height: 80px;
+    font-size: 2rem;
+    color: white;
+    border: 1px solid white;
+}
