@@ -68,3 +68,10 @@ header {
     color: white;
     border: 1px solid white;
 }
+
+/* FOOTER */
+footer {
+    padding-left: 20px;
+    line-height: 50px;
+    background-color: white;
+}
