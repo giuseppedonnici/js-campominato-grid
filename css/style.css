@@ -56,11 +56,33 @@ header {
     margin: 3rem auto;
 }
 
-.box {
+.box-hard {
     display: flex;
     align-items: center;
     justify-content: center;
     width: calc(100% / 10);
+    height: 80px;
+    font-size: 2rem;
+    color: white;
+    border: 1px solid white;
+}
+
+.box-medium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 9);
+    height: 80px;
+    font-size: 2rem;
+    color: white;
+    border: 1px solid white;
+}
+
+.box-easy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 7);
     height: 80px;
     font-size: 2rem;
     color: white;
