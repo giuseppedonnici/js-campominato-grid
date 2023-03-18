@@ -23,17 +23,36 @@ play.addEventListener('click', function () {
     if (activeGrid === 0) {
         // Tramite il ciclo for gli faccio creare 100 elementi
         for (let i = 1; i <= 100; i++) {
-            let currentElem = document.createElement("div");
-            currentElem.classList.add("box"); // Aggiungo ad ogni elemento la classe box
-            currentElem.innerText = `${i}`; //Aggiungo ad ogni elemento il numero di iterazione
-            currentElem.addEventListener('click', function () { //Aggiungo ad ogni elemento un event listener
+            let gridElement = createElementWithAClass('div', 'box');
+            // let currentElem = document.createElement("div");
+            // currentElem.classList.add("box"); // Aggiungo ad ogni elemento la classe box
+            gridElement.innerText = `${i}`; //Aggiungo ad ogni elemento il numero di iterazione
+            gridElement.addEventListener('click', function () { //Aggiungo ad ogni elemento un event listener
                 this.style.backgroundColor = "skyblue"; // Al click di ogni elemento lo coloro di azzurro
                 console.log(`Hai cliccato la cella numero: ${this.innerText}`); // Al click di ogni elemento mostro in console il suo valore innerText
             });
-            grid.append(currentElem); //Inserisco ogni elemento dentro la griglia
+            grid.append(gridElement); //Inserisco ogni elemento dentro la griglia
         }
         activeGrid++; // Incremento la variabile così evito di aggiungere ulteriori griglie
     } else {
         alert ("La griglia è già attiva!");
     }
 });
+
+
+// FUNCTIONS
+/**
+ * Descrizione: la funzione crea un elemento html con una classe
+ * @param {string} elemento 
+ * @param {string} classe 
+ * @returns un elemento html con una classe
+ */
+function createElementWithAClass(elemento, classe) {
+    let newItem = document.createElement(`${elemento}`);
+    newItem.classList.add(`${classe}`);
+    return newItem;
+}
+
+
+
+
