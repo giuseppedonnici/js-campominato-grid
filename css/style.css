@@ -41,6 +41,13 @@ header {
     border-radius: 5px;
 }
 
+.nav-right select {
+    width: 150px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+
 /* MAIN */
 .grid {
     display: flex;
