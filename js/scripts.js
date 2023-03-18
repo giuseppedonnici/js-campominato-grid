@@ -23,53 +23,34 @@ let difficulty = document.getElementById("difficulty");
 // Prendo dal documento la griglia
 let grid = document.querySelector(".grid");
 
-
-
 let activeGrid = 0;
 // Aggiungo al bottone un event listener
 play.addEventListener('click', function () {
     // Al click creo la griglia solamente se non è già stata crea
     if (activeGrid === 0) {
-        if (difficulty.value === '1') {
-            // Tramite il ciclo for gli faccio creare 100 elementi
-            for (let i = 1; i <= 100; i++) {
-                let gridElement = createElementWithAClass('div', 'box-hard');
-                // let currentElem = document.createElement("div");
-                // currentElem.classList.add("box"); // Aggiungo ad ogni elemento la classe box
-                gridElement.innerText = `${i}`; //Aggiungo ad ogni elemento il numero di iterazione
-                gridElement.addEventListener('click', function () { //Aggiungo ad ogni elemento un event listener
-                    this.style.backgroundColor = "skyblue"; // Al click di ogni elemento lo coloro di azzurro
-                    console.log(`Hai cliccato la cella numero: ${this.innerText}`); // Al click di ogni elemento mostro in console il suo valore innerText
-                });
-                grid.append(gridElement); //Inserisco ogni elemento dentro la griglia
-            }
-            activeGrid++; // Incremento la variabile così evito di aggiungere ulteriori griglie
-
-        } else if (difficulty.value === '2') {
-            for (let i = 1; i <= 81; i++) {
-                let gridElement = createElementWithAClass('div', 'box-medium');
-                gridElement.innerText = `${i}`; //Aggiungo ad ogni elemento il numero di iterazione
-                gridElement.addEventListener('click', function () { //Aggiungo ad ogni elemento un event listener
-                    this.style.backgroundColor = "skyblue"; // Al click di ogni elemento lo coloro di azzurro
-                    console.log(`Hai cliccato la cella numero: ${this.innerText}`); // Al click di ogni elemento mostro in console il suo valore innerText
-                });
-                grid.append(gridElement); //Inserisco ogni elemento dentro la griglia
-            }
-            activeGrid++; // Incremento la variabile così evito di aggiungere ulteriori griglie
-        } else {
-            for (let i = 1; i <= 49; i++) {
-                let gridElement = createElementWithAClass('div', 'box-easy');
-                gridElement.innerText = `${i}`; //Aggiungo ad ogni elemento il numero di iterazione
-                gridElement.addEventListener('click', function () { //Aggiungo ad ogni elemento un event listener
-                    this.style.backgroundColor = "skyblue"; // Al click di ogni elemento lo coloro di azzurro
-                    console.log(`Hai cliccato la cella numero: ${this.innerText}`); // Al click di ogni elemento mostro in console il suo valore innerText
-                });
-                grid.append(gridElement); //Inserisco ogni elemento dentro la griglia
-            }
-            activeGrid++; // Incremento la variabile così evito di aggiungere ulteriori griglie
+        let cellsNumber = 100;
+        let className = 'box-hard'
+        if (difficulty.value === '2') {
+            cellsNumber = 81;
+            className = 'box-medium';
+        } else if (difficulty.value === '3') {
+            cellsNumber = 49;
+            className = 'box-easy';
         }
+
+        // Tramite il ciclo for gli faccio creare n elementi in base alla difficoltà
+        for (let i = 1; i <= cellsNumber; i++) {
+            let gridElement = createElementWithAClass('div', className);
+            gridElement.innerText = `${i}`; //Aggiungo ad ogni elemento il numero di iterazione
+            gridElement.addEventListener('click', function () { //Aggiungo ad ogni elemento un event listener
+                this.style.backgroundColor = "skyblue"; // Al click di ogni elemento lo coloro di azzurro
+                console.log(`Hai cliccato la cella numero: ${this.innerText}`); // Al click di ogni elemento mostro in console il suo valore innerText
+            });
+            grid.append(gridElement); //Inserisco ogni elemento dentro la griglia
+        }
+        activeGrid++; // Incremento la variabile così evito di aggiungere ulteriori griglie
     } else {
-        alert ("La griglia è già attiva!");
+        alert("La griglia è già attiva!");
     }
 });
 
