@@ -49,11 +49,17 @@ header {
 
 
 /* MAIN */
+.start-game {
+    line-height: calc(95vh - 150px);
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+}
 .grid {
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
-    margin: 3rem auto;
+    width: 600px;
+    margin: 1.5rem auto;
 }
 
 .box-easy {
@@ -61,8 +67,8 @@ header {
     align-items: center;
     justify-content: center;
     width: calc(100% / 10);
-    height: 80px;
-    font-size: 2rem;
+    height: 60px;
+    font-size: 1.5rem;
     color: white;
     border: 1px solid white;
 }
@@ -87,6 +93,10 @@ header {
     font-size: 2rem;
     color: white;
     border: 1px solid white;
+}
+
+.hidden {
+    display: none;
 }
 
 /* FOOTER */

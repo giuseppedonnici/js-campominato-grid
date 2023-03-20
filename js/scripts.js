@@ -26,6 +26,8 @@ let grid = document.querySelector(".grid");
 // Aggiungo al bottone un event listener
 play.addEventListener('click', function () {
     // Al click creo la griglia solamente se non è già stata crea
+        const startText = document.querySelector('.start-game');
+        startText.classList.add('hidden');
         grid.innerHTML = "";
         let cellsNumber = 100;
         let className = 'box-easy'
