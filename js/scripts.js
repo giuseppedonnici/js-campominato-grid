@@ -23,19 +23,18 @@ let difficulty = document.getElementById("difficulty");
 // Prendo dal documento la griglia
 let grid = document.querySelector(".grid");
 
-let activeGrid = 0;
 // Aggiungo al bottone un event listener
 play.addEventListener('click', function () {
     // Al click creo la griglia solamente se non è già stata crea
-    if (activeGrid === 0) {
+        grid.innerHTML = "";
         let cellsNumber = 100;
-        let className = 'box-hard'
+        let className = 'box-easy'
         if (difficulty.value === '2') {
             cellsNumber = 81;
             className = 'box-medium';
         } else if (difficulty.value === '3') {
             cellsNumber = 49;
-            className = 'box-easy';
+            className = 'box-hard';
         }
 
         // Tramite il ciclo for gli faccio creare n elementi in base alla difficoltà
@@ -43,15 +42,12 @@ play.addEventListener('click', function () {
             let gridElement = createElementWithAClass('div', className);
             gridElement.innerText = `${i}`; //Aggiungo ad ogni elemento il numero di iterazione
             gridElement.addEventListener('click', function () { //Aggiungo ad ogni elemento un event listener
+                let clickedNumber = parseInt(this.innerText);
                 this.style.backgroundColor = "skyblue"; // Al click di ogni elemento lo coloro di azzurro
-                console.log(`Hai cliccato la cella numero: ${this.innerText}`); // Al click di ogni elemento mostro in console il suo valore innerText
+                console.log(clickedNumber); // Al click di ogni elemento mostro in console il suo valore innerText
             });
             grid.append(gridElement); //Inserisco ogni elemento dentro la griglia
         }
-        activeGrid++; // Incremento la variabile così evito di aggiungere ulteriori griglie
-    } else {
-        alert("La griglia è già attiva!");
-    }
 });
 
 
@@ -60,7 +56,7 @@ play.addEventListener('click', function () {
  * Descrizione: la funzione crea un elemento html con una classe
  * @param {string} elemento 
  * @param {string} classe 
- * @returns un elemento html con una classe
+ * @returns {object} Dom element
  */
 function createElementWithAClass(elemento, classe) {
     let newItem = document.createElement(`${elemento}`);

@@ -56,7 +56,7 @@ header {
     margin: 3rem auto;
 }
 
-.box-hard {
+.box-easy {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,7 +78,7 @@ header {
     border: 1px solid white;
 }
 
-.box-easy {
+.box-hard {
     display: flex;
     align-items: center;
     justify-content: center;
